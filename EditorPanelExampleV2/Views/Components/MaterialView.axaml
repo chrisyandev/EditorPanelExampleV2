@@ -6,7 +6,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="EditorPanelExampleV2.Views.MaterialView"
 			       x:DataType="vm:MaterialViewModel">
-	<StackPanel IsVisible="{Binding !IsCollapsed}" Margin="10">
-		<TextBox Text="{Binding Material}" Classes="clearButton" />
-	</StackPanel>
+  <StackPanel IsVisible="{Binding !IsCollapsed}" Margin="{StaticResource ComponentSeparatorInnerSpacing}">
+    <TextBox Text="{Binding Material}" Classes="clearButton" />
+  </StackPanel>
 </UserControl>

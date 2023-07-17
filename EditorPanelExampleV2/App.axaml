@@ -3,13 +3,44 @@
              x:Class="EditorPanelExampleV2.App"
              xmlns:local="using:EditorPanelExampleV2"
              RequestedThemeVariant="Dark">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+  <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
-    <Application.DataTemplates>
-        <local:ViewLocator/>
-    </Application.DataTemplates>
-  
-    <Application.Styles>
-        <FluentTheme />
-    </Application.Styles>
+  <Application.DataTemplates>
+    <local:ViewLocator/>
+  </Application.DataTemplates>
+
+  <Application.Styles>
+    <FluentTheme />
+    <StyleInclude Source="/Resources/CommonStyles.axaml" />
+  </Application.Styles>
+
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/Resources/ToolTips.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <Color x:Key="DefaultDarkColor">#383838</Color>
+    <Color x:Key="DefaultDarkColorDarker1">#2b2b2b</Color>
+    <Color x:Key="DefaultDarkColorDarker2">#1f1f1f</Color>
+    <Color x:Key="DefaultDarkColorDarker3">#121212</Color>
+    <Color x:Key="DefaultDarkColorLighter1">#454545</Color>
+    <Color x:Key="DefaultDarkColorLighter2">#525252</Color>
+    <Color x:Key="DefaultDarkColorLighter3">#5e5e5e</Color>
+    <Color x:Key="ShuttleGreyColor">#64676e</Color>
+    <Color x:Key="CharcoalColor">#4a4a4a</Color>
+
+    <SolidColorBrush x:Key="DefaultDarkBrush" Color="{StaticResource DefaultDarkColor}" />
+    <SolidColorBrush x:Key="DefaultDarkBrushDarker1" Color="{StaticResource DefaultDarkColorDarker1}" />
+    <SolidColorBrush x:Key="DefaultDarkBrushDarker2" Color="{StaticResource DefaultDarkColorDarker2}" />
+    <SolidColorBrush x:Key="DefaultDarkBrushDarker3" Color="{StaticResource DefaultDarkColorDarker3}" />
+    <SolidColorBrush x:Key="DefaultDarkBrushLighter1" Color="{StaticResource DefaultDarkColorLighter1}" />
+    <SolidColorBrush x:Key="DefaultDarkBrushLighter2" Color="{StaticResource DefaultDarkColorLighter2}" />
+    <SolidColorBrush x:Key="DefaultDarkBrushLighter3" Color="{StaticResource DefaultDarkColorLighter3}" />
+    <SolidColorBrush x:Key="ShuttleGreyBrush" Color="{StaticResource ShuttleGreyColor}" />
+    <SolidColorBrush x:Key="CharcoalBrush" Color="{StaticResource CharcoalColor}" />
+
+    <Thickness x:Key="ComponentSeparatorInnerSpacing">0,0,0,3</Thickness>
+  </Application.Resources>
 </Application>

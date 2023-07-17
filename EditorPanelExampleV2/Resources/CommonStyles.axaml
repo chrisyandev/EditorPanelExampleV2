@@ -1,0 +1,91 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+      <Border Padding="20">
+          <!-- Add Controls for Previewer Here -->
+      </Border>
+  </Design.PreviewWith>
+
+  <Style Selector="Border.componentSeparator">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrush}" />
+    <Setter Property="BorderBrush" Value="Black" />
+    <Setter Property="BorderThickness" Value="0,0,0,2" />
+    <Setter Property="CornerRadius" Value="0" />
+    <Setter Property="Padding" Value="16,0,16,1" />
+  </Style>
+  <Style Selector="Button">
+    <Setter Property="Foreground" Value="White" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+  </Style>
+  <Style Selector="TextBox">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="MinHeight" Value="24" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Padding" Value="6,0,6,0" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+  </Style>
+  <Style Selector="ComboBox">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="MinHeight" Value="24" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Padding" Value="5,0,0,0" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+  </Style>
+  <Style Selector="ComboBoxItem">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrushDarker2}" />
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style Selector="ComboBoxItem:selected /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrush}" />
+    <Setter Property="TextBlock.Foreground" Value="White" />
+  </Style>
+  <Style Selector="ComboBoxItem:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrushLighter2}" />
+    <Setter Property="TextBlock.Foreground" Value="White" />
+  </Style>
+  <Style Selector="TextBlock.label">
+    <Setter Property="Foreground" Value="White" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="TextBlock.subLabel">
+    <Setter Property="Padding" Value="10,0,0,0" />
+  </Style>
+  <Style Selector="CheckBox">
+    <Setter Property="RenderTransform">
+      <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+    </Setter>
+  </Style>
+  <Style Selector="CheckBox:pressed /template/ Border#NormalRectangle">
+    <Setter Property="Background" Value="Black" />
+    <Setter Property="Opacity" Value="0.3" />
+    <Setter Property="BorderBrush" Value="Gray" />
+  </Style>
+  <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkColorDarker1}" />
+    <Setter Property="BorderBrush" Value="LightGray" />
+  </Style>
+  <Style Selector="ContextMenu#componentContextMenu">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrushDarker2}" />
+  </Style>
+  <Style Selector="ContextMenu#componentContextMenu MenuItem">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrushDarker2}" />
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+  <Style Selector="ContextMenu#componentContextMenu MenuItem:pointerover /template/ Border#PART_LayoutRoot">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrushLighter2}" />
+  </Style>
+  <Style Selector="ContextMenu#componentContextMenu MenuItem:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrushLighter2}" />
+    <Setter Property="TextBlock.Foreground" Value="White" />
+  </Style>
+  <Style Selector="ContextMenu#componentContextMenu MenuItem:pressed /template/ Border#PART_LayoutRoot">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrush}" />
+  </Style>
+  <Style Selector="ContextMenu#componentContextMenu MenuItem:pressed /template/ ContentPresenter#PART_HeaderPresenter">
+    <Setter Property="Background" Value="{DynamicResource DefaultDarkBrush}" />
+  </Style>
+</Styles>

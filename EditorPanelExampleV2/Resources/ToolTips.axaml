@@ -1,0 +1,35 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Material Tooltips -->
+	<x:String x:Key="toolTip_Material_Title">This is a Material</x:String>
+
+	<!-- MaterialList Tooltips -->
+	<x:String x:Key="toolTip_MaterialList_Title">This is a Material List</x:String>
+
+	<!-- Transform Tooltips -->
+	<x:String x:Key="toolTip_Transform_Title">This is a Transform</x:String>
+	<x:String x:Key="toolTip_Transform_X">The X coordinate</x:String>
+	<x:String x:Key="toolTip_Transform_Y">The Y coordinate</x:String>
+	<x:String x:Key="toolTip_Transform_Z">The Z coordinate</x:String>
+
+	<!-- Animator Tooltips -->
+	<x:String x:Key="toolTip_Animator_Title">This is an Animator</x:String>
+	<x:String x:Key="toolTip_Animator_Controller">The controller</x:String>
+	<x:String x:Key="toolTip_Animator_Avatar">The avatar</x:String>
+	<x:String x:Key="toolTip_Animator_ApplyRootMotion">Use animation root motion to move the object</x:String>
+	<x:String x:Key="toolTip_Animator_UpdateMode">How often animator is updated</x:String>
+	<x:String x:Key="toolTip_Animator_CullingMode">What gets updated when object is culled</x:String>
+
+	<!-- Light Tooltips -->
+	<x:String x:Key="toolTip_Light_Title">This is a Light</x:String>
+	<x:String x:Key="toolTip_Light_Type">The current type of light</x:String>
+	<x:String x:Key="toolTip_Light_Range">How far the light is emitted</x:String>
+	<x:String x:Key="toolTip_Light_SpotAngle">Angles in degrees for controlling the size of the cone</x:String>
+	<x:String x:Key="toolTip_Light_Intensity">Brightness of the light</x:String>
+	<x:String x:Key="toolTip_Light_ShadowType">The current type of shadow or no shadow</x:String>
+	<x:String x:Key="toolTip_Light_ShadowStrength">How dark the shadows are</x:String>
+	<x:String x:Key="toolTip_Light_ShadowResolution">The fidelity of shadows</x:String>
+	<x:String x:Key="toolTip_Light_ShadowBias">Amount of correction to apply to prevent self-shadowing artifacts</x:String>
+	
+</ResourceDictionary>

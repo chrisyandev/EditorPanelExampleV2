@@ -6,14 +6,16 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 						 x:Class="EditorPanelExampleV2.Views.ComponentViewContainer"
              DragDrop.AllowDrop="True">
-	<UserControl.Template>
-		<ControlTemplate>
-			<Border Name="dragBorder">
-				<StackPanel>
-					<views:ComponentHeader />
-					<ContentPresenter Content="{TemplateBinding Content}"/>
-				</StackPanel>
-			</Border>
-		</ControlTemplate>
-	</UserControl.Template>
+  <UserControl.Template>
+    <ControlTemplate>
+      <Border Name="dragBorder">
+        <Border Classes="componentSeparator">
+          <StackPanel>
+            <views:ComponentHeader />
+            <ContentPresenter Content="{TemplateBinding Content}"/>
+          </StackPanel>
+        </Border>
+      </Border>
+    </ControlTemplate>
+  </UserControl.Template>
 </UserControl>
