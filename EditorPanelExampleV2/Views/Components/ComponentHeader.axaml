@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+						 xmlns:vm="using:EditorPanelExampleV2.ViewModels"
+						 xmlns:controls="using:EditorPanelExampleV2.Controls"
+             mc:Ignorable="d"
+             x:Class="EditorPanelExampleV2.Views.ComponentHeader"
+						 x:DataType="vm:ComponentViewModelBase"
+             DragDrop.AllowDrop="True">
+  <Grid ColumnDefinitions="Auto * Auto" Margin="16,1,16,0">
+    <Button Grid.Column="0"
+				Command="{Binding ToggleCollapseCommand}"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				HorizontalContentAlignment="Center"
+				VerticalContentAlignment="Center"
+				Width="18" Height="18"
+				Padding="0" Margin="0,0,5,0"
+				Background="Transparent">
+      <Panel>
+        <Image Source="avares://EditorPanelExampleV2/Assets/arrow-down.png"
+					   IsVisible="{Binding !IsCollapsed}"
+					   Width="12" Height="12" />
+        <Image Source="avares://EditorPanelExampleV2/Assets/arrow-right.png"
+					   IsVisible="{Binding IsCollapsed}"
+					   Width="12" Height="12" />
+      </Panel>
+    </Button>
+
+    <controls:ComponentTitleButton
+      Grid.Column="1"
+      Name="componentTitleButton"
+      Content="{Binding Title}" />
+
+    <Button Grid.Column="2"
+            Name="contextMenuButton"
+            Width="18" Height="18"
+            Padding="0" Margin="5,0,0,0"
+            Background="Transparent">
+      <Image Source="avares://EditorPanelExampleV2/Assets/kebab-white.png"
+             Width="12" Height="12" />
+    </Button>
+  </Grid>
+</UserControl>
