@@ -74,18 +74,11 @@ namespace EditorPanelExampleV2.ViewModels
                     }
                 });
 
-            ComponentDragService cmptDragService = (ComponentDragService)App.Current!.Services!
-                .GetServices<IDragService>().First(s => s.GetType() == typeof(ComponentDragService));
+            IComponentDragService cmptDragService = App.Current?.Services?.GetService<IComponentDragService>()!;
             cmptDragService.GetDragDirectionCommand = getDragDirectionCommand;
             cmptDragService.InsertComponentCommand = insertComponentCommand;
         }
 
-        
-
         public ObservableCollection<ComponentViewModelBase> Components { get; }
-
-        //public ReactiveCommand<Tuple<ComponentViewModelBase, ComponentViewModelBase>, Unit>? InsertComponentCommand { get; }
-
-        //public ReactiveCommand<Tuple<ComponentViewModelBase, ComponentViewModelBase>, string>? GetDragDirectionCommand { get; }
     }
 }

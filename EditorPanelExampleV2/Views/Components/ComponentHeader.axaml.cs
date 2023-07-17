@@ -22,16 +22,12 @@ namespace EditorPanelExampleV2.Views
 
             DragDrop.SetAllowDrop(this, true);
 
-            var cmptDragService = App.Current?.Services?.GetServices<IDragService>()
-                .FirstOrDefault(s => s.GetType() == typeof(ComponentDragService));
+            IComponentDragService cmptDragService = App.Current?.Services?.GetService<IComponentDragService>()!;
             
             componentTitleButton.LeftMouseButtonDown += async (sender, e) =>
             {
-                if (cmptDragService != null)
-                {
-                    Border dragBorder = (Border)this.GetVisualAncestors().First(x => x.Name == "dragBorder");
-                    await cmptDragService.StartDrag(dragBorder, e, this);
-                }
+                Border dragBorder = (Border)this.GetVisualAncestors().First(x => x.Name == "dragBorder");
+                await cmptDragService.StartDrag(dragBorder, e, this);
             };
         }
     }

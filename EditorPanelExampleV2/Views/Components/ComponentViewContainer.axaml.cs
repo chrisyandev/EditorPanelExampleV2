@@ -18,13 +18,11 @@ namespace EditorPanelExampleV2.Views
         {
             base.OnApplyTemplate(e);
 
-            Border? dragBorder = e.NameScope.Find<Border>("dragBorder");
+            Border dragBorder = e.NameScope.Find<Border>("dragBorder")!;
+            IComponentDragService cmptDragService = App.Current?.Services?.GetService<IComponentDragService>()!;
 
-            var cmptDragService = App.Current?.Services?.GetServices<IDragService>()
-                .FirstOrDefault(s => s.GetType() == typeof(ComponentDragService));
-
-            AddHandler(DragDrop.DragEnterEvent, (sender, e) => cmptDragService?.HandleDragEnter(dragBorder!, e, this));
-            AddHandler(DragDrop.DropEvent, (sender, e) => cmptDragService?.HandleDrop(dragBorder!, e, this));
+            AddHandler(DragDrop.DragEnterEvent, (sender, e) => cmptDragService?.HandleDragEnter(dragBorder, e, this));
+            AddHandler(DragDrop.DropEvent, (sender, e) => cmptDragService?.HandleDrop(dragBorder, e, this));
         }
     }
 }

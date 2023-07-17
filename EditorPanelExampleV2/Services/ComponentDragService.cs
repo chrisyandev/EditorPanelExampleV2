@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace EditorPanelExampleV2.Services
 {
-    public class ComponentDragService : IDragService
+    public class ComponentDragService : IComponentDragService
     {
         public ReactiveCommand<Tuple<ComponentViewModelBase, ComponentViewModelBase>, string>? GetDragDirectionCommand { get; set; }
         public ReactiveCommand<Tuple<ComponentViewModelBase, ComponentViewModelBase>, Unit>? InsertComponentCommand { get; set; }
@@ -75,7 +75,7 @@ namespace EditorPanelExampleV2.Services
             ComponentViewModelBase sourceComponent = e.Data.Get("SourceComponent") as ComponentViewModelBase;
             Debug.WriteLine($"Source: {sourceComponent}");
 
-            InsertComponentCommand.Execute(Tuple.Create(targetComponent, sourceComponent)).Subscribe(); // does not work without Subscribe()
+            InsertComponentCommand?.Execute(Tuple.Create(targetComponent, sourceComponent)).Subscribe(); // does not work without Subscribe()
 
             Border lastBorder = (e.Data.Get("LastBorder") as Border[])[0];
             lastBorder.BorderThickness = new Thickness(0, 0, 0, 0);

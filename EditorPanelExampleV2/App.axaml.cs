@@ -22,7 +22,7 @@ namespace EditorPanelExampleV2
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 var services = new ServiceCollection();
-                services.AddSingleton<IDragService>(x => new ComponentDragService());
+                services.AddSingleton<IComponentDragService>(x => new ComponentDragService());
                 Services = services.BuildServiceProvider();
 
                 desktop.MainWindow = new MainWindow
