@@ -12,12 +12,6 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="EditorPanelExampleV2">
 
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainWindowViewModel/>
-  </Design.DataContext>
-
   <Window.DataTemplates>
     <DataTemplate DataType="{x:Type vm:MaterialViewModel}">
       <v:ComponentViewContainer>
@@ -50,8 +44,33 @@
     </DataTemplate>
   </Window.DataTemplates>
 
-  <StackPanel>
-    <ItemsControl ItemsSource="{Binding Components}" />
-  </StackPanel>
+
+  <Grid RowDefinitions="Auto *">
+    <Border Grid.Row="0" Classes="componentBorder">
+      <WrapPanel HorizontalAlignment="Right">
+        <WrapPanel.Styles>
+          <Style Selector="Button">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="Padding" Value="3" />
+            <Setter Property="Margin" Value="5,5,0,3" />
+          </Style>
+          <Style Selector="Button:pointerover /template/ ContentPresenter">
+            <Setter Property="TextBlock.Foreground" Value="White" />
+            <Setter Property="Background" Value="SlateBlue" />
+          </Style>
+        </WrapPanel.Styles>
+        <Button Command="{Binding ExpandAll}"
+						Content="Expand All" />
+        <Button Command="{Binding CollapseAll}"
+						Content="Collapse All" />
+      </WrapPanel>
+    </Border>
+
+    <c:MainScrollViewer Grid.Row="1" Name="mainScrollViewer">
+      <StackPanel>
+        <ItemsControl ItemsSource="{Binding Components}" />
+      </StackPanel>
+    </c:MainScrollViewer>
+  </Grid>
 
 </Window>

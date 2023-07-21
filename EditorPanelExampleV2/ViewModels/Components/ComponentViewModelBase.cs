@@ -13,11 +13,6 @@ namespace EditorPanelExampleV2.ViewModels
 {
     public class ComponentViewModelBase : ViewModelBase
     {
-        public ComponentViewModelBase()
-        {
-
-        }
-
         [Reactive]
         public string Title { get; set; } = "<ComponentTitle>";
 
@@ -30,9 +25,12 @@ namespace EditorPanelExampleV2.ViewModels
             "Move Up",
             "Move Down"
         };
-        
-        public ReactiveCommand<Unit, Unit>? ToggleCollapseCommand { get; }
 
         public ReactiveCommand<Unit, Unit>? ContextMenuSelectedCommand { get; }
+
+        public void ToggleCollapse()
+        {
+            IsCollapsed = !IsCollapsed;
+        }
     }
 }

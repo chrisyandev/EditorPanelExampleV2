@@ -80,5 +80,21 @@ namespace EditorPanelExampleV2.ViewModels
         }
 
         public ObservableCollection<ComponentViewModelBase> Components { get; }
+
+        public void ExpandAll()
+        {
+            foreach (ComponentViewModelBase component in Components)
+            {
+                component.IsCollapsed = false;
+            }
+        }
+
+        public void CollapseAll()
+        {
+            foreach (ComponentViewModelBase component in Components)
+            {
+                component.IsCollapsed = true;
+            }
+        }
     }
 }

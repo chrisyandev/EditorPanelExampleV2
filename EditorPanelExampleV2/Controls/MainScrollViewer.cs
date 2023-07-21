@@ -1,15 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.LogicalTree;
-using Avalonia.Styling;
-using Avalonia.VisualTree;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EditorPanelExampleV2.Controls
 {
@@ -36,19 +28,7 @@ namespace EditorPanelExampleV2.Controls
         {
             base.OnApplyTemplate(e);
 
-            Visual result = this.GetVisualDescendants().First(element =>
-            {
-                if (element is ScrollBar s)
-                {
-                    if (s.Name == "PART_VerticalScrollBar")
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            });
-            _verticalScrollBar = result as ScrollBar;
-
+            _verticalScrollBar = e.NameScope.Find<ScrollBar>("PART_VerticalScrollBar");
             _verticalScrollBar.PropertyChanged += VerticalScrollBarPropertyChanged;
         }
 
