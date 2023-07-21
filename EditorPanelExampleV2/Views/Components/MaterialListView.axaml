@@ -20,7 +20,7 @@
                 Foreground="White"
                 FontSize="10"
                 Height="20" Width="20"
-                Command="{Binding $parent[vm:MaterialListViewModel].RemoveMaterial}"
+                Command="{Binding $parent[ItemsControl].((vm:MaterialListViewModel)DataContext).RemoveMaterial}"
                 CommandParameter="{Binding}">
               <Button.Styles>
                 <Style Selector="Button:pointerover /template/ ContentPresenter">

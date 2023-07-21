@@ -1,7 +1,8 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="EditorPanelExampleV2.App"
              xmlns:local="using:EditorPanelExampleV2"
+             xmlns:cvt="using:EditorPanelExampleV2.Converters"
+             x:Class="EditorPanelExampleV2.App"
              RequestedThemeVariant="Dark">
   <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
@@ -42,5 +43,7 @@
     <SolidColorBrush x:Key="CharcoalBrush" Color="{StaticResource CharcoalColor}" />
 
     <Thickness x:Key="ComponentSeparatorInnerSpacing">0,0,0,3</Thickness>
+
+    <cvt:DebuggerConverter x:Key="DebuggerConverter" />
   </Application.Resources>
 </Application>

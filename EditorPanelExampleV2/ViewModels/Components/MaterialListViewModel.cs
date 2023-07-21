@@ -34,12 +34,11 @@ namespace EditorPanelExampleV2.ViewModels
             SetupNewMaterialDialog();
         }
 
-        public ICommand RemoveMaterial { get; set; }
-
-        //public void RemoveMaterial(Material material)
-        //{
-        //    Materials.Remove(material);
-        //}
+        public void RemoveMaterial(Material material)
+        {
+            Debug.WriteLine("REMOVE");
+            Materials.Remove(material);
+        }
 
         #region Add New Material
         public ICommand AddMaterialCommand { get; private set; }
