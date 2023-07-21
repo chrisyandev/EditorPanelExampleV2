@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace EditorPanelExampleV2.Models
 {
-    public class Material : ComponentModelBase
+    public class Material
     {
+        public string Name { get; set; }
+
         public Material(string name = "")
         {
             Name = name;
         }
-
-        [Reactive]
-        public string Name { get; set; }
     }
 }

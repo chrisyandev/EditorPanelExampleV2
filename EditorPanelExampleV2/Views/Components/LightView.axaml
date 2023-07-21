@@ -1,0 +1,170 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:m="using:EditorPanelExampleV2.Models"
+             xmlns:vm="using:EditorPanelExampleV2.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="250"
+             x:Class="EditorPanelExampleV2.Views.LightView"
+             x:DataType="vm:LightViewModel">
+  <UserControl.Resources>
+    <!-- Override Slider Resources from Slider.xaml -->
+    <Thickness x:Key="SliderTopHeaderMargin">0,0,0,0</Thickness>
+    <GridLength x:Key="SliderPreContentMargin">0</GridLength>
+    <GridLength x:Key="SliderPostContentMargin">0</GridLength>
+    <x:Double x:Key="SliderHorizontalHeight">0</x:Double>
+    <!--<x:Double x:Key="SliderVerticalWidth">32</x:Double>-->
+    <CornerRadius x:Key="SliderThumbCornerRadius">10</CornerRadius>
+    <x:Double x:Key="SliderHorizontalThumbWidth">12</x:Double>
+    <x:Double x:Key="SliderHorizontalThumbHeight">12</x:Double>
+    <!--<x:Double x:Key="SliderVerticalThumbWidth">20</x:Double>-->
+    <!--<x:Double x:Key="SliderVerticalThumbHeight">20</x:Double>-->
+
+    <!-- Override Slider Resources from FluentControlResources.xaml -->
+    <x:Double x:Key="SliderOutsideTickBarThemeHeight">4</x:Double>
+    <x:Double x:Key="SliderTrackThemeHeight">2</x:Double>
+    <Thickness x:Key="SliderBorderThemeThickness">0</Thickness>
+    <!--<SolidColorBrush x:Key="SliderContainerBackground" Color="Green" />-->
+    <!--<SolidColorBrush x:Key="SliderContainerBackgroundPointerOver" Color="Green" />-->
+    <!--<SolidColorBrush x:Key="SliderContainerBackgroundPressed" Color="Green" />-->
+    <!--<SolidColorBrush x:Key="SliderContainerBackgroundDisabled" Color="Green" />-->
+    <SolidColorBrush x:Key="SliderThumbBackground" Color="Gray" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="White" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{DynamicResource DefaultDarkColorLighter2}" />
+    <!--<SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="Green" />-->
+    <SolidColorBrush x:Key="SliderTrackFill" Color="{DynamicResource ShuttleGreyColor}" />
+    <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="Gray" />
+    <SolidColorBrush x:Key="SliderTrackFillPressed" Color="Gray" />
+    <!--<SolidColorBrush x:Key="SliderTrackFillDisabled" Color="Green" />-->
+    <SolidColorBrush x:Key="SliderTrackValueFill" Color="{DynamicResource ShuttleGreyColor}" />
+    <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="Gray" />
+    <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="Gray" />
+    <!--<SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="Green" />-->
+    <!--<SolidColorBrush x:Key="SliderTickBarFill" Color="Green" />-->
+    <!--<SolidColorBrush x:Key="SliderTickBarFillDisabled" Color="Green" />-->
+    <!--<SolidColorBrush x:Key="SliderInlineTickBarFill" Color="Green" />-->
+  </UserControl.Resources>
+  <UserControl.Styles>
+    <Style Selector="TextBlock.label">
+      <Setter Property="Width" Value="102" />
+    </Style>
+    <Style Selector="Grid.row > ComboBox:nth-child(2)">
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+    <Style Selector="Grid.row > TextBox:nth-child(3)">
+      <Setter Property="MinWidth" Value="50" />
+      <Setter Property="Width" Value="50" />
+    </Style>
+    <Style Selector="Slider:horizontal">
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Margin" Value="0,0,5,0" />
+    </Style>
+    <!-- Slider Selectors
+				<Style Selector="Slider:horizontal /template/ Border"></Style>
+				<Style Selector="Slider /template/ Grid#SliderContainer"></Style>
+				<Style Selector="Slider /template/ Grid#HorizontalTemplate"></Style>
+				<Style Selector="Slider /template/ Track#PART_Track"></Style>
+				<Style Selector="Slider:pointerover /template/ Thumb#thumb"></Style>
+				-->
+  </UserControl.Styles>
+
+  <StackPanel IsVisible="{Binding !IsCollapsed}" Margin="{StaticResource ComponentSeparatorInnerSpacing}">
+    <Grid Classes="row" ColumnDefinitions="Auto *">
+      <TextBlock Grid.Column="0"
+             Classes="label"
+             Text="Type"
+             ToolTip.Tip="{StaticResource toolTip_Light_Type}" />
+      <ComboBox Grid.Column="1"
+            ItemsSource="{Binding Types}"
+            SelectedItem="{Binding SelectedType}"
+            Focusable="False" />
+    </Grid>
+
+    <Grid Classes="row" ColumnDefinitions="Auto *" IsVisible="{Binding IsRangeVisible}">
+      <TextBlock Grid.Column="0"
+             Classes="label subLabel"
+             Text="Range"
+             ToolTip.Tip="{StaticResource toolTip_Light_Range}" />
+      <TextBox Grid.Column="1"
+           Name="textBox_Range"
+           Text="{Binding Range, FallbackValue=0}" />
+    </Grid>
+
+    <Grid Classes="row" ColumnDefinitions="Auto * Auto" IsVisible="{Binding IsSpotAngleVisible}">
+      <TextBlock Grid.Column="0"
+             Classes="label subLabel"
+             Text="Spot Angle"
+             ToolTip.Tip="{StaticResource toolTip_Light_SpotAngle}" />
+      <Slider Grid.Column="1"
+          Value="{Binding SpotAngle}"
+          Minimum="{Binding Source={x:Static m:Light.SPOTLIGHT_MIN_SPOT_ANGLE}}"
+          Maximum="{Binding Source={x:Static m:Light.SPOTLIGHT_MAX_SPOT_ANGLE}}" />
+      <TextBox Grid.Column="2"
+           Name="textBox_SpotAngle"
+           Text="{Binding SpotAngle, FallbackValue=0}" />
+    </Grid>
+
+    <Grid Classes="row" ColumnDefinitions="Auto *">
+      <TextBlock Grid.Column="0"
+             Classes="label"
+             Text="Intensity"
+             ToolTip.Tip="{StaticResource toolTip_Light_Intensity}" />
+      <TextBox Grid.Column="1"
+           Name="textBox_Intensity"
+           Text="{Binding Intensity, FallbackValue=0}" />
+    </Grid>
+
+    <Grid Classes="row" ColumnDefinitions="Auto *">
+      <TextBlock Grid.Column="0"
+             Classes="label"
+             Text="Shadow Type"
+             ToolTip.Tip="{StaticResource toolTip_Light_ShadowType}" />
+      <ComboBox Grid.Column="1"
+            ItemsSource="{Binding ShadowTypes}"
+            SelectedItem="{Binding SelectedShadowType}"
+            Focusable="False" />
+    </Grid>
+
+    <StackPanel IsVisible="{Binding IsShadowPropertiesVisible}">
+      <Grid Classes="row" ColumnDefinitions="Auto * Auto">
+        <TextBlock Grid.Column="0"
+               Classes="label subLabel"
+               Text="Strength"
+               ToolTip.Tip="{StaticResource toolTip_Light_ShadowStrength}" />
+        <Slider Grid.Column="1"
+            Value="{Binding ShadowStrength}"
+            Minimum="{Binding Source={x:Static m:Light.SHADOW_MIN_STRENGTH}}"
+            Maximum="{Binding Source={x:Static m:Light.SHADOW_MAX_STRENGTH}}" />
+        <TextBox Grid.Column="2"
+             Name="textBox_Strength"
+             Text="{Binding ShadowStrength, FallbackValue=0}" />
+      </Grid>
+
+      <Grid Classes="row" ColumnDefinitions="Auto *">
+        <TextBlock Grid.Column="0"
+               Classes="label subLabel"
+               Text="Resolution"
+               ToolTip.Tip="{StaticResource toolTip_Light_ShadowResolution}" />
+        <ComboBox Grid.Column="1"
+              ItemsSource="{Binding ShadowResolutions}"
+              SelectedItem="{Binding SelectedShadowResolution}"
+              Focusable="False" />
+      </Grid>
+
+      <Grid Classes="row" ColumnDefinitions="Auto * Auto">
+        <TextBlock Grid.Column="0"
+               Classes="label subLabel"
+               Text="Bias"
+               ToolTip.Tip="{StaticResource toolTip_Light_ShadowBias}" />
+        <Slider Grid.Column="1"
+            Value="{Binding ShadowBias}"
+            Minimum="{Binding Source={x:Static m:Light.SHADOW_MIN_BIAS}}"
+            Maximum="{Binding Source={x:Static m:Light.SHADOW_MAX_BIAS}}" />
+        <TextBox Grid.Column="2"
+             Name="textBox_Bias"
+             Text="{Binding ShadowBias, FallbackValue=0}" />
+      </Grid>
+    </StackPanel>
+  </StackPanel>
+
+</UserControl>

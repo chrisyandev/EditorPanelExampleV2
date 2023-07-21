@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:EditorPanelExampleV2.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="250"
+             x:Class="EditorPanelExampleV2.Views.AnimatorView"
+             x:DataType="vm:AnimatorViewModel">
+  <UserControl.Styles>
+    <Style Selector="TextBlock.label">
+      <Setter Property="Margin" Value="0,0,25,0" />
+    </Style>
+  </UserControl.Styles>
+
+  <StackPanel IsVisible="{Binding !IsCollapsed}" Margin="{StaticResource ComponentSeparatorInnerSpacing}">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+        ColumnDefinitions="Auto,*">
+
+      <TextBlock Grid.Row="0" Grid.Column="0"
+             Classes="label"
+             ToolTip.Tip="{StaticResource toolTip_Animator_Controller}"
+             Text="Controller" />
+      <TextBlock Grid.Row="1" Grid.Column="0"
+             Classes="label"
+             ToolTip.Tip="{StaticResource toolTip_Animator_Avatar}"
+             Text="Avatar" />
+
+      <TextBox Classes="clearButton" Text="{Binding Controller}"
+        Grid.Row="0" Grid.Column="1" />
+
+      <TextBox Classes="clearButton" Text="{Binding Avatar}"
+        Grid.Row="1" Grid.Column="1" />
+
+      <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+        <TextBlock Classes="label"
+               ToolTip.Tip="{StaticResource toolTip_Animator_ApplyRootMotion}"
+               Text="Apply Root Motion" />
+        <CheckBox IsChecked="{Binding ApplyRootMotion}" Margin="0,-2,0,-2" />
+      </StackPanel>
+
+      <TextBlock Grid.Row="3" Grid.Column="0"
+             Classes="label"
+             ToolTip.Tip="{StaticResource toolTip_Animator_UpdateMode}"
+             Text="Update Mode" />
+      <TextBlock Grid.Row="4" Grid.Column="0"
+             Classes="label"
+             ToolTip.Tip="{StaticResource toolTip_Animator_CullingMode}"
+             Text="Culling Mode" />
+
+      <ComboBox Grid.Row="3" Grid.Column="1"
+            ItemsSource="{Binding UpdateModes}"
+            SelectedItem="{Binding SelectedUpdateMode}"
+            HorizontalAlignment="Stretch"
+            Focusable="False" />
+
+      <ComboBox Grid.Row="4" Grid.Column="1"
+            ItemsSource="{Binding CullingModes}"
+            SelectedItem="{Binding SelectedCullingMode}"
+            HorizontalAlignment="Stretch"
+            Focusable="False" />
+    </Grid>
+  </StackPanel>
+</UserControl>

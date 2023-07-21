@@ -16,11 +16,13 @@ namespace EditorPanelExampleV2.ViewModels
         public MaterialViewModel()
         {
             _material = new Material();
+            SetupComponent();
         }
 
         public MaterialViewModel(Material material)
         {
             _material = material;
+            SetupComponent();
         }
 
         public string Material
@@ -30,9 +32,20 @@ namespace EditorPanelExampleV2.ViewModels
             {
                 if (value == _material.Name) { return; }
                 _material.Name = value;
+                this.RaisePropertyChanged(nameof(Material));
 
                 Debug.WriteLine(_material.Name);
             }
+        }
+
+        private void SetupComponent()
+        {
+            Title = "Material";
+        }
+
+        public void ClearMaterial()
+        {
+            Material = "";
         }
     }
 }

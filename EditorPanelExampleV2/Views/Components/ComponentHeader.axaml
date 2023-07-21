@@ -3,11 +3,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 						 xmlns:vm="using:EditorPanelExampleV2.ViewModels"
-						 xmlns:controls="using:EditorPanelExampleV2.Controls"
+						 xmlns:c="using:EditorPanelExampleV2.Controls"
              mc:Ignorable="d"
              x:Class="EditorPanelExampleV2.Views.ComponentHeader"
 						 x:DataType="vm:ComponentViewModelBase">
-  <Grid ColumnDefinitions="Auto * Auto" Margin="16,1,16,0">
+  <Grid ColumnDefinitions="Auto,*,Auto" Margin="16,1,16,0">
     <Button Grid.Column="0"
 				Command="{Binding ToggleCollapseCommand}"
 				HorizontalAlignment="Center"
@@ -27,7 +27,7 @@
       </Panel>
     </Button>
 
-    <controls:ComponentTitleButton
+    <c:ComponentTitleButton
       Grid.Column="1"
       Name="componentTitleButton"
       Content="{Binding Title}"

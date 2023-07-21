@@ -2,7 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-						 xmlns:views="using:EditorPanelExampleV2.Views"
+						 xmlns:v="using:EditorPanelExampleV2.Views"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 						 x:Class="EditorPanelExampleV2.Views.ComponentViewContainer"
              DragDrop.AllowDrop="True">
@@ -11,7 +11,7 @@
       <Border Name="dragBorder">
         <Border Classes="componentSeparator">
           <StackPanel>
-            <views:ComponentHeader />
+            <v:ComponentHeader />
             <ContentPresenter Content="{TemplateBinding Content}"/>
           </StackPanel>
         </Border>

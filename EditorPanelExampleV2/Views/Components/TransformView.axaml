@@ -1,0 +1,70 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:EditorPanelExampleV2.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="200"
+             x:Class="EditorPanelExampleV2.Views.TransformView"
+             x:DataType="vm:TransformViewModel">
+  <UserControl.Styles>
+    <Style Selector="TextBlock.label">
+      <Setter Property="Margin" Value="5,0,10,0" />
+    </Style>
+  </UserControl.Styles>
+
+  <Border Grid.Row="1"
+      IsVisible="{Binding !IsCollapsed}"
+      Background="{DynamicResource CharcoalBrush}"
+      BorderBrush="Black"
+      BorderThickness="0"
+      CornerRadius="3"
+      Padding="4"
+      Margin="{StaticResource ComponentSeparatorInnerSpacing}">
+    <Grid RowDefinitions="Auto Auto Auto" ColumnDefinitions="Auto * Auto">
+
+      <TextBlock Grid.Row="0" Grid.Column="0"
+             Classes="label"
+             ToolTip.Tip="{StaticResource toolTip_Transform_X}"
+             Text="X" />
+      <TextBlock Grid.Row="1" Grid.Column="0"
+             Classes="label"
+             ToolTip.Tip="{StaticResource toolTip_Transform_Y}"
+             Text="Y" />
+      <TextBlock Grid.Row="2" Grid.Column="0"
+             Classes="label"
+             ToolTip.Tip="{StaticResource toolTip_Transform_Z}"
+             Text="Z" />
+
+      <TextBox Name="textBox_X" Grid.Row="0" Grid.Column="1" Text="{Binding X, FallbackValue=0}" />
+      <TextBox Name="textBox_Y" Grid.Row="1" Grid.Column="1" Text="{Binding Y, FallbackValue=0}" />
+      <TextBox Name="textBox_Z" Grid.Row="2" Grid.Column="1" Text="{Binding Z, FallbackValue=0}" />
+
+      <Button Grid.Column="2" Grid.RowSpan="3"
+        Command="{Binding ClearTransform}"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        VerticalContentAlignment="Center"
+        HorizontalContentAlignment="Center"
+        Background="{DynamicResource ShuttleGreyBrush}"
+        Foreground="White"
+        CornerRadius="25"
+        Padding="0"
+        Width="16" Height="16"
+        FontSize="8.6"
+        Margin="4,0,0,0">
+        <Button.Styles>
+          <Style Selector="Button:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource DefaultDarkBrush}"/>
+            <Setter Property="TextBlock.Foreground" Value="White" />
+          </Style>
+
+          <Style Selector="Button:pressed /template/ ContentPresenter">
+            <Setter Property="TextBlock.Foreground" Value="White" />
+            <Setter Property="TextBlock.Background" Value="Black" />
+          </Style>
+        </Button.Styles>
+        X
+      </Button>
+    </Grid>
+  </Border>
+</UserControl>

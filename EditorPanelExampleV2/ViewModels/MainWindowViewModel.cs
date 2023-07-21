@@ -23,10 +23,10 @@ namespace EditorPanelExampleV2.ViewModels
             Components = new ObservableCollection<ComponentViewModelBase>
             {
                 new MaterialViewModel(new Material("ONE.mat")),
-                new MaterialViewModel(new Material("TWO.mat")),
-                new MaterialViewModel(new Material("THREE.mat")),
-                new MaterialViewModel(new Material("FOUR.mat")),
-                new MaterialViewModel(new Material("FIVE.mat")),
+                new MaterialListViewModel(),
+                new TransformViewModel(),
+                new AnimatorViewModel(),
+                new LightViewModel(),
             };
 
             ReactiveCommand<Tuple<ComponentViewModelBase, ComponentViewModelBase>, string> getDragDirectionCommand
