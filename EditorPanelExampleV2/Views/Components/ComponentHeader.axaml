@@ -34,10 +34,23 @@
       HorizontalAlignment="Stretch"
 			VerticalAlignment="Center"
       FontSize="12" FontWeight="Bold"
-      Background="Transparent" />
+      Background="Transparent">
+      <Button.ContextMenu>
+        <ContextMenu Name="componentContextMenu">
+          <MenuItem Header="Remove Component"
+              Command="{Binding ContextMenuSelectedCommand}"
+              CommandParameter="remove component" />
+          <MenuItem Header="Move Up" Command="{Binding ContextMenuSelectedCommand}"
+              CommandParameter="move up" />
+          <MenuItem Header="Move Down" Command="{Binding ContextMenuSelectedCommand}"
+              CommandParameter="move down" />
+        </ContextMenu>
+      </Button.ContextMenu>
+    </c:ComponentTitleButton>
 
     <Button Grid.Column="2"
             Name="contextMenuButton"
+            Click="ContextMenuButton_Click"
             Width="18" Height="18"
             Padding="0" Margin="5,0,0,0"
             Background="Transparent">

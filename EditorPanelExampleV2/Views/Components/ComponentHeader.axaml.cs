@@ -11,6 +11,10 @@ using Avalonia.LogicalTree;
 using Avalonia.VisualTree;
 using Avalonia.Controls.Utils;
 using Avalonia;
+using Avalonia.Controls.Primitives;
+using ReactiveUI;
+using System.Reactive;
+using System.Windows.Input;
 
 namespace EditorPanelExampleV2.Views
 {
@@ -29,6 +33,15 @@ namespace EditorPanelExampleV2.Views
                 Border dragBorder = (Border)this.GetVisualAncestors().First(x => x.Name == "dragBorder");
                 await cmptDragService.StartDrag(dragBorder, e, this);
             };
+        }
+
+        public void ContextMenuButton_Click(object? sender, RoutedEventArgs e)
+        {
+            componentContextMenu.PlacementTarget = contextMenuButton;
+            componentContextMenu.Placement = PlacementMode.AnchorAndGravity;
+            componentContextMenu.PlacementAnchor = Avalonia.Controls.Primitives.PopupPositioning.PopupAnchor.Bottom;
+            componentContextMenu.PlacementGravity = Avalonia.Controls.Primitives.PopupPositioning.PopupGravity.BottomLeft;
+            componentContextMenu.Open();
         }
     }
 }

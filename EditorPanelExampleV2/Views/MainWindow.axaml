@@ -69,6 +69,40 @@
     <c:MainScrollViewer Grid.Row="1" Name="mainScrollViewer">
       <StackPanel>
         <ItemsControl ItemsSource="{Binding Components}" />
+
+        <Button Name="addComponentButton"
+                Content="Add Component"
+                HorizontalAlignment="Center"
+                FontSize="12"
+                Margin="5" Padding="10,6">
+          <Button.Styles>
+            <Style Selector="Button:pointerover /template/ ContentPresenter">
+              <Setter Property="TextBlock.Foreground" Value="White" />
+              <Setter Property="Background" Value="SlateBlue" />
+            </Style>
+          </Button.Styles>
+          <Button.Flyout>
+            <MenuFlyout Placement="Top">
+              <MenuItem Header="Material">
+                <MenuItem Header="Material"
+										  Command="{Binding SelectMenuItemCommand}"
+										  CommandParameter="Material" />
+                <MenuItem Header="Material List"
+										  Command="{Binding SelectMenuItemCommand}"
+										  CommandParameter="Material List" />
+              </MenuItem>
+              <MenuItem Header="Transform"
+									  Command="{Binding SelectMenuItemCommand}"
+									  CommandParameter="Transform" />
+              <MenuItem Header="Animator"
+									  Command="{Binding SelectMenuItemCommand}"
+									  CommandParameter="Animator" />
+              <MenuItem Header="Light"
+									  Command="{Binding SelectMenuItemCommand}"
+									  CommandParameter="Light" />
+            </MenuFlyout>
+          </Button.Flyout>
+        </Button>
       </StackPanel>
     </c:MainScrollViewer>
   </Grid>

@@ -19,14 +19,7 @@ namespace EditorPanelExampleV2.ViewModels
         [Reactive]
         public bool IsCollapsed { get; set; }
 
-        public List<string> ContextMenuItems { get; } = new()
-        {
-            "Remove Component",
-            "Move Up",
-            "Move Down"
-        };
-
-        public ReactiveCommand<Unit, Unit>? ContextMenuSelectedCommand { get; }
+        public ICommand? ContextMenuSelectedCommand { get; set; }
 
         public void ToggleCollapse()
         {
