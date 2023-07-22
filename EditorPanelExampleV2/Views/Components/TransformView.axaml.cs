@@ -4,6 +4,7 @@ using Avalonia.Interactivity;
 using Avalonia.Threading;
 using EditorPanelExampleV2.Services;
 using EditorPanelExampleV2.ViewModels;
+using System.Collections.Generic;
 
 namespace EditorPanelExampleV2.Views
 {
@@ -15,24 +16,20 @@ namespace EditorPanelExampleV2.Views
         {
             InitializeComponent();
 
-            textBox_X.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
-            textBox_X.PastingFromClipboard += TextBox_PastingFromClipboard;
-            textBox_X.LostFocus += TextBox_LostFocus;
-            textBox_X.PointerReleased += TextBox_PointerReleased;
+            List<TextBox> textBoxes = new()
+            {
+                textBox_X,
+                textBox_Y,
+                textBox_Z
+            };
 
-            textBox_Y.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
-            textBox_Y.PastingFromClipboard += TextBox_PastingFromClipboard;
-            textBox_Y.LostFocus += TextBox_LostFocus;
-            textBox_Y.PointerReleased += TextBox_PointerReleased;
-
-            textBox_Z.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
-            textBox_Z.PastingFromClipboard += TextBox_PastingFromClipboard;
-            textBox_Z.LostFocus += TextBox_LostFocus;
-            textBox_Z.PointerReleased += TextBox_PointerReleased;
-
-            // Note: If valid string is pasted to overwrite existing string
-            // that contains '-' or '.', ex: -23.45 pasted to overwrite -19.78,
-            // will not paste due to the way clipboard data is validated
+            foreach (TextBox textBox in textBoxes)
+            {
+                textBox.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
+                textBox.PastingFromClipboard += TextBox_PastingFromClipboard;
+                textBox.LostFocus += TextBox_LostFocus;
+                textBox.PointerReleased += TextBox_PointerReleased;
+            }
         }
 
         private void TextBox_PreviewTextInput(object sender, TextInputEventArgs e)

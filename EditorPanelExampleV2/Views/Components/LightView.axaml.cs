@@ -5,6 +5,7 @@ using Avalonia.Threading;
 using EditorPanelExampleV2.Models;
 using EditorPanelExampleV2.Services;
 using EditorPanelExampleV2.ViewModels;
+using System.Collections.Generic;
 
 namespace EditorPanelExampleV2.Views
 {
@@ -16,30 +17,22 @@ namespace EditorPanelExampleV2.Views
         {
             InitializeComponent();
 
-            textBox_Range.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
-            textBox_Range.PastingFromClipboard += TextBox_PastingFromClipboard;
-            textBox_Range.LostFocus += TextBox_LostFocus;
-            textBox_Range.PointerReleased += TextBox_PointerReleased;
+            List<TextBox> textBoxes = new()
+            {
+                textBox_Range,
+                textBox_SpotAngle,
+                textBox_Intensity,
+                textBox_Strength,
+                textBox_Bias
+            };
 
-            textBox_SpotAngle.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
-            textBox_SpotAngle.PastingFromClipboard += TextBox_PastingFromClipboard;
-            textBox_SpotAngle.LostFocus += TextBox_LostFocus;
-            textBox_SpotAngle.PointerReleased += TextBox_PointerReleased;
-
-            textBox_Intensity.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
-            textBox_Intensity.PastingFromClipboard += TextBox_PastingFromClipboard;
-            textBox_Intensity.LostFocus += TextBox_LostFocus;
-            textBox_Intensity.PointerReleased += TextBox_PointerReleased;
-
-            textBox_Strength.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
-            textBox_Strength.PastingFromClipboard += TextBox_PastingFromClipboard;
-            textBox_Strength.LostFocus += TextBox_LostFocus;
-            textBox_Strength.PointerReleased += TextBox_PointerReleased;
-
-            textBox_Bias.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
-            textBox_Bias.PastingFromClipboard += TextBox_PastingFromClipboard;
-            textBox_Bias.LostFocus += TextBox_LostFocus;
-            textBox_Bias.PointerReleased += TextBox_PointerReleased;
+            foreach (TextBox textBox in textBoxes)
+            {
+                textBox.AddHandler(TextInputEvent, TextBox_PreviewTextInput, RoutingStrategies.Tunnel);
+                textBox.PastingFromClipboard += TextBox_PastingFromClipboard;
+                textBox.LostFocus += TextBox_LostFocus;
+                textBox.PointerReleased += TextBox_PointerReleased;
+            }
         }
 
         private void TextBox_PreviewTextInput(object sender, TextInputEventArgs e)

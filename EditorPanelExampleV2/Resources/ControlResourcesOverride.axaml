@@ -1,0 +1,38 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ResourceDictionary.ThemeDictionaries>
+    <ResourceDictionary x:Key="Default">
+
+      <!-- Override TextBox resources from TextBox.xaml -->
+      <StaticResource x:Key="TextControlForegroundDisabled" ResourceKey="SystemControlDisabledChromeDisabledLowBrush" />
+      <StaticResource x:Key="TextControlBackgroundDisabled" ResourceKey="SystemControlBackgroundBaseLowBrush" />
+      <StaticResource x:Key="TextControlBorderBrushDisabled" ResourceKey="SystemControlDisabledBaseLowBrush" />
+      <StaticResource x:Key="TextControlPlaceholderForegroundDisabled"
+                      ResourceKey="SystemControlDisabledChromeDisabledLowBrush" />
+
+      <!-- Override Slider resources from Slider.xaml -->
+      <Thickness x:Key="SliderTopHeaderMargin">0,0,0,0</Thickness>
+      <GridLength x:Key="SliderPreContentMargin">0</GridLength>
+      <GridLength x:Key="SliderPostContentMargin">0</GridLength>
+      <x:Double x:Key="SliderHorizontalHeight">0</x:Double>
+      <CornerRadius x:Key="SliderThumbCornerRadius">10</CornerRadius>
+      <x:Double x:Key="SliderHorizontalThumbWidth">12</x:Double>
+      <x:Double x:Key="SliderHorizontalThumbHeight">12</x:Double>
+
+      <!-- Override Slider resources from FluentControlResources.xaml -->
+      <x:Double x:Key="SliderOutsideTickBarThemeHeight">4</x:Double>
+      <x:Double x:Key="SliderTrackThemeHeight">2</x:Double>
+      <Thickness x:Key="SliderBorderThemeThickness">0</Thickness>
+      <SolidColorBrush x:Key="SliderThumbBackground" Color="Gray" />
+      <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="White" />
+      <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{DynamicResource DefaultDarkColorLighter2}" />
+      <SolidColorBrush x:Key="SliderTrackFill" Color="{DynamicResource ShuttleGreyColor}" />
+      <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="Gray" />
+      <SolidColorBrush x:Key="SliderTrackFillPressed" Color="Gray" />
+      <SolidColorBrush x:Key="SliderTrackValueFill" Color="{DynamicResource ShuttleGreyColor}" />
+      <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="Gray" />
+      <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="Gray" />
+      
+    </ResourceDictionary>
+  </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

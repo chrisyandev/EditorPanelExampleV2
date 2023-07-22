@@ -19,6 +19,7 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="/Resources/ToolTips.axaml" />
+        <ResourceInclude Source="/Resources/ControlResourcesOverride.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
@@ -44,6 +45,7 @@
 
     <Thickness x:Key="ComponentSeparatorInnerSpacing">0,0,0,3</Thickness>
 
+    <cvt:InvalidNumberConverter x:Key="InvalidNumberConverter" />
     <cvt:DebuggerConverter x:Key="DebuggerConverter" />
   </Application.Resources>
 </Application>

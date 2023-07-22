@@ -35,9 +35,9 @@
              ToolTip.Tip="{StaticResource toolTip_Transform_Z}"
              Text="Z" />
 
-      <TextBox Name="textBox_X" Grid.Row="0" Grid.Column="1" Text="{Binding X, FallbackValue=0}" />
-      <TextBox Name="textBox_Y" Grid.Row="1" Grid.Column="1" Text="{Binding Y, FallbackValue=0}" />
-      <TextBox Name="textBox_Z" Grid.Row="2" Grid.Column="1" Text="{Binding Z, FallbackValue=0}" />
+      <TextBox Name="textBox_X" Grid.Row="0" Grid.Column="1" Text="{Binding X, Converter={StaticResource InvalidNumberConverter}}" />
+      <TextBox Name="textBox_Y" Grid.Row="1" Grid.Column="1" Text="{Binding Y, Converter={StaticResource InvalidNumberConverter}}" />
+      <TextBox Name="textBox_Z" Grid.Row="2" Grid.Column="1" Text="{Binding Z, Converter={StaticResource InvalidNumberConverter}}" />
 
       <Button Grid.Column="2" Grid.RowSpan="3"
         Command="{Binding ClearTransform}"
